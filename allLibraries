@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		Map of libraries in Stanislaus County
+	</title>
+	
+</head>
+<body>
+ <p>This map displays all of the libraries within Stanislaus County.</p>
+<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/search?
+q=libraries%20in%20Stanislaus%20County%2C%20CA%2C%20United%20States&key=AIzaSyB67v_uaZXMlPytLyV-DUshkbXeSghivgI"></iframe>
+</body>
+</html>
