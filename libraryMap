@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>Stanislaus County Library Locations</title> 
+  <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+</head> 
+<body>
+  <p>The locations of all branches of the Stanislaus County Library System.</p>
+  <div id="map" style="width: 600px; height: 500px;"></div>
+
+  <script type="text/javascript">
+    var locations = [
+      ['Ceres Library, 2250 Magnolia Avenue, Ceres, CA 95307', 37.592922, -120.954927, 1],
+      ['Denair Library, 4801 Kersey Road, Denair, CA 95316', 37.52721930000001, -120.7939384, 2],
+      ['Empire Library, 18 South Abbie Street, Empire, CA 95319',	37.637535, -120.898549, 3],
+      ['Hughson Library, 2412A Third Street, Hughson, CA 95326', 37.596047, -120.866285, 4],
+      ['Keyes Library, 4420 Maud Avenue, Keyes, CA 95328', 37.5538014, -120.90887320000002, 5],
+      ['Modesto Library, 1500 I Street, Modesto, CA 95354', 37.6430470765818, -120.994305661254, 6],
+      ['Newman Library, 1305 Kern Street, Newman, CA 95360', 37.316418, -121.02771000000001, 7],
+      ['Oakdale Library, 151 South First Avenue, Oakdale, CA 95361', 37.7647199, -120.84871499999997, 8],
+      ['Patterson Library, 46 North Salado, Patterson, CA 95363', 37.4716813, -121.13170379999997, 9],
+      ['Riverbank Library, 3442 Santa Fe Street, Riverbank, CA 95367', 37.7360133, -120.93335569999999, 10],
+      ['Salida Library, 4835 Sisk Road, Salida, CA 95368', 37.708497, -121.07833199999999, 11],
+      ['Turlock Library, 550 Minaret Avenue, Turlock, CA 95380', 37.497755, -120.83942530000002, 12],
+      ['Waterford Library, 324 E Street, Waterford, CA 95386', 37.642143, -120.76082300000002, 13]
+
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 10,
+      center: new google.maps.LatLng(37.55, -120.9),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
+</body>
+</html>
